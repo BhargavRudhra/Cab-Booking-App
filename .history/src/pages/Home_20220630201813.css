@@ -1,0 +1,12 @@
+.main-card{
+    top: 300px;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+} 
+.mob-num-email{
+    top: 200px;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+}

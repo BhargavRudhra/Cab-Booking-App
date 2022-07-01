@@ -1,0 +1,47 @@
+.main-card{
+    top: 300px;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+} 
+.mob-num-email-btn{
+    position: relative;
+    top: 100px;
+    left: 18px;
+    width: 265px!important;
+    height: 55px;
+    padding: 3px 3px 3px 3px;
+    border-radius: 10px;
+}
+.facebook-btn{
+    position: relative;
+    top: 100px;
+    left: 18px;
+    width: 150px;
+    height: 55px;
+    padding: 3px 3px 3px 3px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+}
+img {
+    position: relative;
+    right: 3vw;
+    max-width: 100%;
+    border: 0;
+}
+.insta-btn{
+    position: relative;
+    top: 50px;
+    left: 18px;
+    width: 150px;
+    height: 55px;
+    padding: 3px 3px 3px 3px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+}

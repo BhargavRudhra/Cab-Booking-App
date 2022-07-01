@@ -1,0 +1,50 @@
+.main-page-content{
+    position: relative;
+    background-color: white;
+}
+.mancar{
+    position: relative;
+    height: 280px;
+    top: 20px;
+}
+.Login{
+    position: relative;
+    top: 30px;
+    text-align: center;
+    font-size: 22px;
+}
+.login-uname-input{
+    position: relative;
+    color: black;
+    opacity: 9;
+    border-radius: 4px;
+    top: 70px;
+    left: 30px;
+    width: 260px;
+    height: 40px;
+    background-color: gainsboro;
+}
+.login-password-input{
+    position: relative;
+    color: black;
+    opacity: 9;
+    border-radius: 4px;
+    top: 105px;
+    left: 30px;
+    width: 260px;
+    height: 40px;
+    background-color: gainsboro; 
+}
+.login-submit-button{
+    position: relative;
+    top: 140px;
+    left: 110px;
+    width: 90px;
+    font-size: 14px;
+}
+.login-text{
+    position: relative;
+    top: 200px;
+    right: 46px;
+    font-size: 13px;
+}

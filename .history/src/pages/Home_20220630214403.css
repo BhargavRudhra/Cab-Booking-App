@@ -1,0 +1,58 @@
+.main-card{
+    top: 300px;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+} 
+.mob-num-email-btn{
+    position: relative;
+    top: 90px;
+    left: 18px;
+    width: 265px!important;
+    height: 55px;
+    padding: 3px 3px 3px 3px;
+    border-radius: 10px;
+}
+.facebook-btn{
+    position: relative;
+    top: 100px;
+    left: 18px;
+    width: 120px;
+    height: 55px;
+    padding: 3px 3px 3px 3px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+}
+.face-img {
+    position: relative;
+    right: 0vw;
+    max-width: 100%;
+    border: 0;
+}
+.insta-btn{
+    position: relative;
+    top: 41px;
+    left: 170px;
+    width: 120px;
+    height: 55px;
+    padding: 3px 3px 3px 3px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+}
+.insta-img {
+    position: relative;
+    right: 2vw;
+    max-width: 100%;
+    border: 0;
+}
+.copyrights{
+    position: relative;
+    top: 50px;
+    left: 100px;
+}

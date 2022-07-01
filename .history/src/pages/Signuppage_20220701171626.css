@@ -1,0 +1,73 @@
+.main-page-content{
+    position: relative;
+    background-color: white;
+}
+.mancar{
+    position: relative;
+    height: 280px;
+    top: 20px;
+}
+.signup{
+    position: relative;
+    top: 18px;
+    text-align: center;
+    font-size: 22px;
+}
+.signup-uname-input{
+    position: relative;
+    color: black;
+    opacity: 9;
+    border-radius: 7px;
+    top: 35px;
+    left: 30px;
+    width: 260px;
+    height: 35px;
+    background-color: gainsboro;
+}
+.signup-number-input{
+    position: relative;
+    color: black;
+    opacity: 9;
+    border-radius: 7px;
+    top: 57px;
+    left: 30px;
+    width: 260px;
+    height: 35px;
+    background-color: gainsboro; 
+    font-size: large;
+}
+.signup-email-input{
+    position: relative;
+    color: black;
+    opacity: 9;
+    border-radius: 7px;
+    top: 79px;
+    left: 30px;
+    width: 260px;
+    height: 35px;
+    background-color: gainsboro;
+}
+.signup-password-input{
+    position: relative;
+    color: black;
+    opacity: 9;
+    border-radius: 7px;
+    top: 102px;
+    left: 30px;
+    width: 260px;
+    height: 32px;
+    background-color: gainsboro;
+}
+.signup-submit-button{
+    position: relative;
+    top: 123px;
+    left: 110px;
+    width: 90px;
+    font-size: 14px;
+}
+.signup-text{
+    position: relative;
+    top: 180px;
+    right: 20px;
+    font-size: 13px;
+}
