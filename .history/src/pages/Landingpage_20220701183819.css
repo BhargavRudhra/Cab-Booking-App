@@ -1,0 +1,16 @@
+.map-img{
+    /* position: relative; */
+    height: 270px;
+    width: 318px;
+    left: 5px;
+}
+.landpage-main-card{
+    top: 20px;
+    height: 180px;
+    width: 300px;
+}
+.search-tag{
+    position:relative;
+    top: 20px;
+    height: 1px;
+}

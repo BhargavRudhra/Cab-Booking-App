@@ -1,0 +1,27 @@
+.map-img{
+    /* position: relative; */
+    height: 270px;
+    width: 318px;
+    left: 5px;
+}
+.landpage-main-card{
+    top: 20px;
+    height: 180px;
+    width: 300px;
+}
+.search-tag{
+    position:relative;
+    top: 20px;
+    height: 9vh;
+}
+/* .md{
+    height: 15vh!important;
+} */
+.searchbar-input-container.sc-ion-searchbar-md{
+    display: block;
+    position: relative;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    width: 100%!important;
+    height: 6vh!important;
+}
