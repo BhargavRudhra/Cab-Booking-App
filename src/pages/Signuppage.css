@@ -1,73 +1,112 @@
-.main-page-content{
-    position: relative;
-    background-color: white;
+.signup-main-page-content {
+  --background: white;
+  height: 100%;
 }
-.mancar{
-    position: relative;
-    height: 280px;
-    top: 20px;
+.signup-main-grid {
+  /* display: flex; */
+  height: 100vh;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  padding: 5%;
 }
-.signup{
-    position: relative;
-    top: 18px;
-    text-align: center;
-    font-size: 22px;
+.mancar-row {
+  display: flex;
 }
-.signup-uname-input{
-    position: relative;
-    color: black;
-    opacity: 9;
-    border-radius: 7px;
-    top: 35px;
-    left: 30px;
-    width: 260px;
-    height: 35px;
-    background-color: gainsboro;
+.mancar {
+  height: 250px;
+  /* top: 20px; */
 }
-.signup-number-input{
-    position: relative;
-    color: black;
-    opacity: 9;
-    border-radius: 7px;
-    top: 57px;
-    left: 30px;
-    width: 260px;
-    height: 35px;
-    background-color: gainsboro; 
-    font-size: large;
+.signup-title-row {
+  display: flex;
+  /* justify-content: center;
+    align-items: center; */
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 30px; */
+  /* margin-top: 30px; */
 }
-.signup-email-input{
-    position: relative;
-    color: black;
-    opacity: 9;
-    border-radius: 7px;
-    top: 79px;
-    left: 30px;
-    width: 260px;
-    height: 35px;
-    background-color: gainsboro;
+.signup {
+  /* top: 23px; */
+  text-align: center;
+  font-size: 2rem;
+  color: black;
 }
-.signup-password-input{
-    position: relative;
-    color: black;
-    opacity: 9;
-    border-radius: 7px;
-    top: 102px;
-    left: 30px;
-    width: 260px;
-    height: 32px;
-    background-color: gainsboro;
+.signup-input-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 200px; */
+  /* padding: %; */
+  /* margin-top: 30px; */
 }
-.signup-submit-button{
-    position: relative;
-    top: 123px;
-    left: 110px;
-    width: 90px;
-    font-size: 14px;
+.signup-uname-input {
+  color: black;
+  margin-top: 20px;
+  opacity: 9;
+  border-radius: 7px;
+  /* top: 40px; */
+  /* left: 30px; */
+  /* width: 260px; */
+  height: 40px;
+  background-color: rgb(241, 236, 224);
+  text-align: center;
 }
-.signup-text{
-    position: relative;
-    top: 180px;
-    right: 20px;
-    font-size: 13px;
+.signup-number-input {
+  color: black;
+  opacity: 9;
+  border-radius: 7px;
+  margin-top: 20px;
+  /* left: 30px; */
+  /* width: 260px; */
+  height: 40px;
+  background-color: rgb(241, 236, 224);
+  text-align: center;
+}
+.signup-email-input {
+  color: black;
+  opacity: 9;
+  border-radius: 7px;
+  margin-top: 20px;
+  /* left: 30px; */
+  /* width: 260px; */
+  height: 40px;
+  background-color: rgb(241, 236, 224);
+  text-align: center;
+}
+.signup-password-input {
+  color: black;
+  opacity: 9;
+  border-radius: 7px;
+  margin-top: 20px;
+  /* left: 30px; */
+  /* width: 260px; */
+  height: 40px;
+  background-color: rgb(241, 236, 224);
+  text-align: center;
+}
+.signup-btn-row{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.signup-submit-button {
+  margin-top: 20px;
+  /* left: 110px; */
+  width: 90px;
+  font-size: 14px;
+  height: 35px;
+}
+.signup-text {
+  /* top: 140px; */
+  /* right: 33px; */
+  font-size: 15px;
+  color: black;
+}
+.signup-text-row {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
 }

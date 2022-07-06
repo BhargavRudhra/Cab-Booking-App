@@ -1,82 +1,70 @@
-.taxivip{
-    position: relative;
-    top: 65px;
-    left: 17px;
-    height: 19px;
+.home-main-content {
+  --background: white;
+  height: 100%;
 }
-.maincar-img{
-    position: relative;
-    top: 11vh;
-    height: 35vh;
-    width: 305px;
-    left: 8px;
-    box-shadow: none;
+.home-main-grid {
+  /* display: flex; */
+  height: 100vh;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  padding: 5%;
 }
-.main-card{
-    top: 60px;
-    width: 307px;
-    height: 280px;
-    
-    border-radius: 5px;
-    background:transparent;
-
-    box-shadow: 1px 1px 1px 1px black;
-
-    -webkit-box-shadow: none;
-} 
-.mob-num-email-btn{
-    position: relative;
-    top: 80px;
-    left: 8px;
-    width: 280px!important;
-    height: 52px;
-    padding: 3px 3px 3px 3px;
-    border-radius: 10px;
-    font-size: 15px;
+.home-img-row {
+  display: flex;
+  flex-direction: column;
 }
-.facebook-btn{
-    position: relative;
-    top: 100px;
-    left: 15px;
-    width: 130px;
-    height: 43px;
-    padding: 3px 3px 3px 3px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: flex-start;
-    justify-items: flex-start;
-    align-items: flex-start;
-    font-size: 12px;
+.taxivip {
+  margin-top: 30px;
+  margin-left: px;
+  /* left: 17px; */
+  height: 19px;
+}
+.maincar-img {
+  height: 40vh;
+}
+.home-button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+.mob-num-email-btn {
+  width: 337px;
+  height: 42px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: black;
+}
+.img-btn-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.img-col {
+  display: flex;
+  justify-content: center;
+}
+.facebook-btn {
+  font-size: 12px;
+  color: black;
 }
 .face-img {
-    position: relative;
-    right: 1vw;
-    max-width: 100%;
-    border: 0;
+  margin-right: 5vw;
 }
-.insta-btn{
-    position: relative;
-    top: 54px;
-    left: 150px;
-    width: 135px;
-    height: 43px;
-    padding: 3px 3px 3px 3px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: flex-start;
-    justify-items: flex-start;
-    align-items: flex-start;
-    font-size: 12px;
+.insta-btn {
+  border-radius: 10px;
+  font-size: 12px;
+  color: black;
 }
 .insta-img {
-    position: relative;
-    right: 2vw;
-    max-width: 100%;
-    border: 0;
+  margin-right: 5vw;
 }
-.copyrights{
-    position: relative;
-    top: 55px;
-    left: 110px;
-    font-size: 12px;
+.copyrights-row {
+  display: flex;
+  justify-content: flex-end;
+}
+.copyrights {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  color: black;
 }
