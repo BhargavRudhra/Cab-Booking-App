@@ -1,0 +1,14 @@
+.setting-main-content{
+    --background: white;
+  height: 100%;
+}
+.setting-main-grid{
+    height: 100vh;
+  justify-content: space-around;
+  padding: 5%;
+}
+.setting-logout-btn-row{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
