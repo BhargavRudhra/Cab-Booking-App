@@ -1,17 +1,14 @@
 .arrow-back-icon{
     display: flex;
-    margin-right: 30px;
+    margin-right: 10px;
 }
 .settings-row{
-    display: flex;
-    /* padding: 50px; */
-    margin-top: 60px;
+    padding: 50px;
 }
 .settings-col{
     display: flex;
     /* margin-top: 19px; */
     font-size: 25px;
-    margin-right: 140px;
 }
 .setting-main-content{
     --background: white;
@@ -27,6 +24,5 @@
     /* display: flex; */
     padding: 6%;
     font-size: 18px;
-    margin-left: 20px;
     
 }

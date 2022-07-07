@@ -113,7 +113,7 @@ const Landingpage = () => {
             </IonCard>
           </IonRow>
           <IonRow className="logout-btn-row">
-            {/* <IonButton className="logout-btn" color="black" onClick={handleLogout}>Logout</IonButton> */}
+            <IonButton className="logout-btn" color="black" >Logout</IonButton>
           </IonRow>
         </IonGrid>
       </IonContent>

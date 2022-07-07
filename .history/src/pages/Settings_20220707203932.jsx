@@ -1,23 +1,8 @@
-import { IonCol, IonContent, IonGrid, IonPage,IonIcon, IonRow,useIonRouter } from "@ionic/react";
+import { IonCol, IonContent, IonGrid, IonPage,IonIcon, IonRow } from "@ionic/react";
 import "./Settings.css";
 import { arrowBack } from "ionicons/icons";
-import { UserAuth } from "../context/AuthContext";
 
 const Settings = () => {
-    const { logout } = UserAuth();
-    const router = useIonRouter();
-    const handleArrowback = async () => {
-        router.push("/Landingpage");
-      };
-      const handleLogout = async () => {
-        try {
-          await logout();
-          router.push("/Loginpage");
-          alert("Successfully Logout");
-        } catch (e) {
-          console.log(e.message);
-        }
-      };
     
     return(
         <IonPage>
@@ -28,7 +13,7 @@ const Settings = () => {
                 className="arrow-back-icon"
                 icon={arrowBack}
                 size="large"
-                onClick={handleArrowback}
+                // onClick={handleSettings}
               />
                 </IonCol>
                 <IonCol className="settings-col"> Settings </IonCol>
@@ -44,7 +29,7 @@ const Settings = () => {
                     <IonRow className="setting-grid-row"> Support </IonRow>
                     <IonRow className="setting-grid-row"> About </IonRow>
                     <IonRow className="setting-grid-row"> Account </IonRow>
-                    <IonRow className="setting-grid-row" onClick={handleLogout}> Logout </IonRow>
+                    <IonRow className="setting-grid-row"> Logout </IonRow>
                 </IonGrid>
             </IonContent>
         </IonPage>

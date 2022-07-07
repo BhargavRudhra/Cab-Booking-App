@@ -21,24 +21,24 @@ import Dashboardcar from "../assets/Dashboard-car.png";
 import auto from "../assets/auto.png";
 import bike from "../assets/Bike.png";
 import travelpic from "../assets/travelpic.png";
-// import { UserAuth } from "../context/AuthContext";
+import { UserAuth } from "../context/AuthContext";
 // import { toastController } from "@ionic/core";
 
 const Landingpage = () => {
-  // const { logout } = UserAuth();
+  const { logout } = UserAuth();
   const router = useIonRouter();
   const handleSettings = async () => {
     router.push("/Settings");
   };
-  // const handleLogout = async () => {
-  //   try {
-  //     await logout();
-  //     router.push("/Loginpage");
-  //     alert("Successfully Logout");
-  //   } catch (e) {
-  //     console.log(e.message);
-  //   }
-  // };
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push("/Loginpage");
+      alert("Successfully Logout");
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
 
   return (
     <IonPage>
@@ -113,7 +113,7 @@ const Landingpage = () => {
             </IonCard>
           </IonRow>
           <IonRow className="logout-btn-row">
-            {/* <IonButton className="logout-btn" color="black" onClick={handleLogout}>Logout</IonButton> */}
+            <IonButton className="logout-btn" color="black" onClick={handleLogout}>Logout</IonButton>
           </IonRow>
         </IonGrid>
       </IonContent>
