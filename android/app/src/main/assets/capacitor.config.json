@@ -2,5 +2,10 @@
 	"appId": "com.cabbooking.app",
 	"appName": "TaxiVIP",
 	"webDir": "build",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 2000
+		}
+	}
 }

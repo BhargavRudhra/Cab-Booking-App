@@ -4,12 +4,7 @@ const config: CapacitorConfig = {
   appId: 'com.cabbooking.app',
   appName: 'TaxiVIP',
   webDir: 'build',
-  bundledWebRuntime: false,
-  plugins: {
-    SplashScreen: {
-        launchShowDuration : 2000
-    }
-  }
+  bundledWebRuntime: false
 };
 
 export default config;

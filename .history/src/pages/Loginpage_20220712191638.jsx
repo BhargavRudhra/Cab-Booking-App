@@ -104,12 +104,11 @@ const Loginpage = () => {
           spinner : "lines-small",
         })
         await signin(email, password);
-        dismissloading();
         handleButtonClick("Successfully Login");
         clearInputs();
+        dismissloading();
         router.push("/Landingpage");
       } catch (e) {
-        dismissloading();
         setError(e.message);
         handleAlert(e.message);
         clearInputs();

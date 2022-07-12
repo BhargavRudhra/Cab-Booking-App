@@ -109,7 +109,6 @@ const Loginpage = () => {
         clearInputs();
         router.push("/Landingpage");
       } catch (e) {
-        dismissloading();
         setError(e.message);
         handleAlert(e.message);
         clearInputs();

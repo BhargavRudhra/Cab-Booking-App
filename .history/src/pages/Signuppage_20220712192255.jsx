@@ -103,17 +103,18 @@ const SignUp = () => {
           spinner : "lines-small",
         })
         await createUser(email, password);
-        dismissloading();
         handleButtonClick("User Added");
         clearInputs();
         router.push("/Loginpage");
       } catch (e) {
-        dismissloading();
         setError(e.message);
         clearInputs();
       }
     }
   };
+  // if(showLoading){
+  //   return <IonLoading isOpen = {showLoading} onDidDismiss={() => setShowLoading(false)} message={'LoggingIn...'} duration={2000}/>
+  // }
   return (
     <IonPage>
       <IonContent className="signup-main-page-content">

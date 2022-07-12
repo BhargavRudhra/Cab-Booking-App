@@ -12,8 +12,7 @@ import {
   useIonToast,
   useIonAlert,
   IonCol,
-  IonLoading,
-  useIonLoading
+  IonLoading
 } from "@ionic/react";
 import "./Loginpage.css";
 import image from "../assets/fac.png";
@@ -28,8 +27,7 @@ const Loginpage = () => {
   const [error, setError] = useState("");
   const [present] = useIonToast();
   const [presentAlert] = useIonAlert();
-  const [loading, setLoading] = useState(false);
-  const [presentloading, dismissloading] = useIonLoading();
+  const [showLoading, setShowLoading] = useState(false);
   const {facebookSignIn, googleSignIn} = UserAuth();
 
   const clearInputs = () => {
@@ -98,27 +96,24 @@ const Loginpage = () => {
       handleButtonClick("Please enter proper email");
     } else {
       try {
-        presentloading({
-          message : 'Loggingin!..',
-          duration : 2000,
-          spinner : "lines-small",
-        })
+        setShowLoading(true);
         await signin(email, password);
-        dismissloading();
+        setShowLoading(false);
         handleButtonClick("Successfully Login");
         clearInputs();
         router.push("/Landingpage");
       } catch (e) {
-        dismissloading();
+        setShowLoading(true);
         setError(e.message);
+        setShowLoading(false);
         handleAlert(e.message);
         clearInputs();
       }
     }
   };
-  // if(loading){
-  //   return <IonLoading isOpen = {showLoading} onDidDismiss={() => setShowLoading(false)} message={'LoggingIn...'} duration={2000}/>
-  // }
+  if(showLoading){
+    return <IonLoading isOpen = {showLoading} onDidDismiss={() => setShowLoading(false)} message={'LoggingIn...'} duration={2000}/>
+  }
   return (
     <IonPage>
       <IonContent className="login-main-page-content">

@@ -101,24 +101,23 @@ const Loginpage = () => {
         presentloading({
           message : 'Loggingin!..',
           duration : 2000,
-          spinner : "lines-small",
+          spinner : "lines-sharp",
         })
         await signin(email, password);
-        dismissloading();
         handleButtonClick("Successfully Login");
         clearInputs();
+        dismissloading();
         router.push("/Landingpage");
       } catch (e) {
-        dismissloading();
         setError(e.message);
         handleAlert(e.message);
         clearInputs();
       }
     }
   };
-  // if(loading){
-  //   return <IonLoading isOpen = {showLoading} onDidDismiss={() => setShowLoading(false)} message={'LoggingIn...'} duration={2000}/>
-  // }
+  if(showLoading){
+    return <IonLoading isOpen = {showLoading} onDidDismiss={() => setShowLoading(false)} message={'LoggingIn...'} duration={2000}/>
+  }
   return (
     <IonPage>
       <IonContent className="login-main-page-content">

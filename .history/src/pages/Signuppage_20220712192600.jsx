@@ -103,12 +103,10 @@ const SignUp = () => {
           spinner : "lines-small",
         })
         await createUser(email, password);
-        dismissloading();
         handleButtonClick("User Added");
         clearInputs();
         router.push("/Loginpage");
       } catch (e) {
-        dismissloading();
         setError(e.message);
         clearInputs();
       }

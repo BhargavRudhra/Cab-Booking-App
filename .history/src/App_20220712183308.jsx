@@ -88,7 +88,7 @@ const App = () => {
     if (docSnap.exists()) {
       const data = docSnap.data();
       console.log("Document data:", docSnap.data());
-      setUpdateDetails(data.updateMsg);
+      setUpdateDetails(data.UpdateMsg);
       setAppVersion(data.current);
     } else {
       console.log("No such document!");

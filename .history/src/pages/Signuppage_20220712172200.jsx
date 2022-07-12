@@ -11,8 +11,7 @@ import {
   IonLabel,
   useIonToast,
   useIonAlert,
-  IonLoading,
-  useIonLoading
+  IonLoading
 } from "@ionic/react";
 import "./Signuppage.css";
 import mancar from "../assets/man-car.png";
@@ -40,8 +39,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [presentloading,dismissloading] = useIonLoading();
+  const [showLoading, setShowLoading] = useState(false);
   const { createUser, currentUser } = UserAuth();
   const router = useIonRouter();
   const clearInputs = () => {
@@ -97,23 +95,24 @@ const SignUp = () => {
       //   e.preventDefault()
       //   setError('')
       try {
-        presentloading({
-          message : 'Loggingin!..',
-          duration : 2000,
-          spinner : "lines-small",
-        })
+        setShowLoading(true);
         await createUser(email, password);
-        dismissloading();
+        setShowLoading(false);
         handleButtonClick("User Added");
         clearInputs();
         router.push("/Loginpage");
       } catch (e) {
-        dismissloading();
+        setShowLoading(true);
         setError(e.message);
+        setShowLoading(false);
+        handleAlert(e.message);
         clearInputs();
       }
     }
   };
+  if(showLoading){
+    return <IonLoading isOpen = {showLoading} onDidDismiss={() => setShowLoading(false)} message={'LoggingIn...'} duration={2000}/>
+  }
   return (
     <IonPage>
       <IonContent className="signup-main-page-content">

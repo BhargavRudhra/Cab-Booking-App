@@ -9,6 +9,7 @@ const config: CapacitorConfig = {
     SplashScreen: {
         launchShowDuration : 2000
     }
+
   }
 };
 

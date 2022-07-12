@@ -52,18 +52,18 @@ const App = () => {
       position: "top",
       animated: true,
       duration: 2000,
-      color: "brown",
+      color: "black",
       mode: "ios",
     });
   };
-  const handleAlert = (msg, title, btn, appVersion) => {
+  const handleAlert = (msg, title, button, appVersion) => {
     presentAlert({
       header: title,
       subHeader: `Version : ${appVersion}`,
       message: msg,
       buttons: [
         {
-          text: btn,
+          text: button,
           role: "Download",
           handler: async () => {
             handleToast("Download Clicked");
@@ -99,9 +99,9 @@ const App = () => {
       if (isPlatform("android")) {
         const currentAppInfo = getAppInfo();
         if (appVersion > (await currentAppInfo).version) {
-          const msg = updateDetails.msg;
+          const msg = updateDetails.message;
           const title = updateDetails.title;
-          const btn = updateDetails.btn;
+          const btn = updateDetails.button;
           handleAlert(msg, title, btn, appVersion);
         }
       }
@@ -116,7 +116,6 @@ const App = () => {
   checkUpdate();
 
   return (
-    <>
     <AuthContextProvider>
       <IonApp>
         <IonReactRouter>
@@ -146,7 +145,6 @@ const App = () => {
         </IonReactRouter>
       </IonApp>
     </AuthContextProvider>
-    </>
   );
 };
 
