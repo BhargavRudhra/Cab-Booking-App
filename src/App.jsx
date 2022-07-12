@@ -31,7 +31,9 @@ import axios from "axios";
 
 setupIonicReact();
 
-const [ updateDetails, setUpdateDetails] = useState({});
+const App = () => {
+
+  const [ updateDetails, setUpdateDetails] = useState({});
 const [appVersion, setAppVersion] = useState("");
 
 const updateRef = doc(db, "TaxiVIP_app_config", "GBmeBS6sGV2YWmjUlDUy");
@@ -111,7 +113,7 @@ const getConfigData = async () => {
  }, [0]);
  checkUpdate();
 
-const App = () => (
+  return(
   <IonApp>
     <AuthContextProvider>
     <IonReactRouter>
@@ -142,5 +144,6 @@ const App = () => (
     </AuthContextProvider>
   </IonApp>
 );
+};
 
 export default App;
