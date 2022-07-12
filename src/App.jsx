@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, isPlatform, setupIonicReact, useIonAlert, useIonToast } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Loginpage from './pages/Loginpage';
@@ -8,6 +8,8 @@ import Landingpage from './pages/Landingpage';
 import Settings from './pages/Settings'
 import Updateapp from './pages/Appupdate'
 import { AuthContextProvider } from "./context/AuthContext";
+import app, { db } from "./firebase";
+import { collection, doc, getDoc, setDoc } from "firebase/firestore"; 
 import '@ionic/react/css/core.css';
 
 import '@ionic/react/css/normalize.css';
@@ -22,8 +24,92 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 import './theme/variables.css';
+import { useEffect, useState } from 'react';
+import { title } from 'process';
+import { Browser } from "@capacitor/browser";
+import axios from "axios";
 
 setupIonicReact();
+
+const [ updateDetails, setUpdateDetails] = useState({});
+const [appVersion, setAppVersion] = useState("");
+
+const updateRef = doc(db, "TaxiVIP_app_config", "GBmeBS6sGV2YWmjUlDUy");
+const [presentAlert] = useIonAlert();
+const [present] = useIonToast();
+
+const handleToast= (msg) => {
+  present ({
+    message : msg,
+    position : "top",
+    animated : true,
+    duration : 2000,
+    color : "lightwhite",
+    mode : "ios",
+  });
+};
+const handleAlert = (msg, title, button, appVersion) => {
+  presentAlert({
+    header : title,
+    subHeader : `Version : ${appVersion}`,
+    message : msg,
+    buttons : [
+      {
+        text : button,
+        role : "Download",
+        handler : async () => {
+          handleToast("Download Clicked");
+          await Browser.open({
+            url : "https://play.google.com/store/apps/details?id=com.cabbooking.app",
+          });
+        },
+      },
+    ],
+    backdropDismiss : true,
+    translucent : true,
+    animated : true,
+    cssClass : "lp-sp-alert",
+  });
+};
+const getAppInfo = async () => {
+  let info = await app.getInfo();
+  return info;
+};
+const getConfigData = async () => {
+  const docSnap = await getDoc(updateRef);
+  if(docSnap.exists()){
+    const data = docSnap.data();
+      console.log("Document data:", docSnap.data());
+      setUpdateDetails(data.updateMsg);
+      setAppVersion(data.current);
+    } else {
+      console.log("No such document!");
+    }
+};
+ const checkUpdate = async () => {
+  try {
+    if (isPlatform("android")){
+      const currentAppInfo = getAppInfo();
+      if (appVersion > (await currentAppInfo).version) {
+        const msg = updateDetails.message;
+        const title = updateDetails.title;
+        const btn = updateDetails.button;
+        handleAlert(msg,title,btn,appVersion);
+      }
+      
+    }
+  }
+  catch(error) {
+
+  }
+ };
+ useEffect(() => {
+  getConfigData();
+  if (isPlatform("android")){
+    getAppInfo();
+  }
+ }, [0]);
+ checkUpdate();
 
 const App = () => (
   <IonApp>
