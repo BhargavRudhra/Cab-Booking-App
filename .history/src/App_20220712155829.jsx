@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, isPlatform, setupIonicReact, useIonAlert, useIonToast } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Loginpage from './pages/Loginpage';
@@ -8,8 +8,6 @@ import Landingpage from './pages/Landingpage';
 import Settings from './pages/Settings'
 import Updateapp from './pages/Appupdate'
 import { AuthContextProvider } from "./context/AuthContext";
-import app, { db } from "./firebase";
-import { collection, doc, getDoc, setDoc } from "firebase/firestore"; 
 import '@ionic/react/css/core.css';
 
 import '@ionic/react/css/normalize.css';
@@ -24,16 +22,10 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 import './theme/variables.css';
-import { useEffect, useState } from 'react';
-import { title } from 'process';
-import { Browser } from "@capacitor/browser";
-import axios from "axios";
 
 setupIonicReact();
 
-const App = () => {
-
- return(
+const App = () => (
   <IonApp>
     <AuthContextProvider>
     <IonReactRouter>
@@ -64,6 +56,5 @@ const App = () => {
     </AuthContextProvider>
   </IonApp>
 );
-};
 
 export default App;
