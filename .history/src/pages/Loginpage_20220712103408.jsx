@@ -156,6 +156,7 @@ const Loginpage = () => {
             >
               Login
             </IonButton>
+            {/* <IonSpinner name="lines" /> */}
           </IonRow>
           <IonRow className="login-text-row">
             <IonText className="login-text">
@@ -169,11 +170,11 @@ const Loginpage = () => {
           <IonRow className="img-btn-row">
             <IonCol className="img-col">
               <IonButton
-                className="google-btn"
+                className="insta-btn"
                 color="lightwhite"
                 onClick={handleGoogleSignIn}
               >
-                <IonImg className="google-img" src={googleicon} />
+                <IonImg className="insta-img" src={googleicon} />
                 Google
               </IonButton>
             </IonCol>

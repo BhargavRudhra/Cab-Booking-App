@@ -14,9 +14,10 @@
     font-size: 25px;
     margin-right: 140px;
 }
+.setting-main-content{
+    --background: white;
+}
 .setting-main-grid{
-    display: flex;
-    flex-direction: column;
    background: rgb(249, 247, 247);
    border-radius: 20px 20px 0 0;
    margin-top: 0px;

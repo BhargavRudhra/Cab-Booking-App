@@ -32,6 +32,7 @@
 .login-email-input {
   display: flex;
   color: black;
+  /* opacity: 9; */
   border-radius: 7px;
   margin-top: 25px;
   height: 45px;
@@ -41,6 +42,7 @@
 .login-password-input {
   display: flex;
   color: black;
+  /* opacity: 9; */
   border-radius: 7px;
   margin-top: 25px;
   height: 45px;
@@ -50,6 +52,7 @@
 .login-btn-row {
   display: flex;
   justify-content: center;
+  /* margin-top: 10px; */
 }
 .login-submit-button {
   display: flex;

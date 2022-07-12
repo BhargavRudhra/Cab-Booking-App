@@ -13,6 +13,11 @@
 }
 .map-img {
   margin-top: 0px;
+  /* height: 270px; */
+  /* width: 318px; */
+  /* margin-left: 1px; */
+}
+.landpage-pick-card {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -64,6 +69,7 @@
   position: relative;
   height: 60px;
   width: 60px;
+  /* margin-left: 0px; */
 }
 .auto-vehicle-name {
   display: flex;
