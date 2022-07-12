@@ -163,13 +163,13 @@ const Loginpage = () => {
           </IonRow>
           <IonRow className="img-btn-row">
           <IonCol className="img-col">
-              <IonButton className="insta-btn" color="lightwhite">
+              <IonButton className="insta-btn" color="lightwhite" onClick={handleGoogleSignIn}>
                 <IonImg className="insta-img" src={googleicon} />
                 Google
               </IonButton>
             </IonCol>
             <IonCol className="img-col">
-              <IonButton className="facebook-btn" color="lightwhite">
+              <IonButton className="facebook-btn" color="lightwhite" onClick={handleFacebookSignIn}>
                 <IonImg className="face-img" src={image} />
                 Facebook
               </IonButton>

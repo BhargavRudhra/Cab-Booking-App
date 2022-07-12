@@ -98,7 +98,7 @@ const SignUp = () => {
       //   setError('')
       try {
         presentloading({
-          message : 'Signingin!..',
+          message : 'Loggingin!..',
           duration : 2000,
           spinner : "lines-small",
         })

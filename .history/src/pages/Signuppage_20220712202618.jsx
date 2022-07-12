@@ -98,20 +98,20 @@ const SignUp = () => {
       //   setError('')
       try {
         presentloading({
-          message : 'Signingin!..',
+          message : 'Loggingin!..',
           duration : 2000,
           spinner : "lines-small",
         })
         await createUser(email, password);
         dismissloading();
         handleButtonClick("User Added");
-        clearInputs();
+        // clearInputs();
         router.push("/Loginpage");
       } catch (e) {
         dismissloading();
         setError(e.message);
         handleAlert(e.message);
-        clearInputs();
+        // clearInputs();
       }
     }
   };

@@ -98,20 +98,20 @@ const SignUp = () => {
       //   setError('')
       try {
         presentloading({
-          message : 'Signingin!..',
+          message : 'Loggingin!..',
           duration : 2000,
           spinner : "lines-small",
         })
         await createUser(email, password);
         dismissloading();
         handleButtonClick("User Added");
-        clearInputs();
+        // clearInputs();
         router.push("/Loginpage");
       } catch (e) {
         dismissloading();
         setError(e.message);
         handleAlert(e.message);
-        clearInputs();
+        // clearInputs();
       }
     }
   };
@@ -128,28 +128,24 @@ const SignUp = () => {
         <IonRow className="signup-input-row"> */}
             <IonInput
               onIonChange={(e) => setUsername(e.detail.value)}
-              value={username}
               type="text"
               placeholder="User Name"
               className="signup-uname-input"
             ></IonInput>
             <IonInput
               onIonChange={(e) => setMobile(e.detail.value)}
-              value={mobile}
               type="number"
               placeholder="Mobile Number"
               className="signup-number-input"
             ></IonInput>
             <IonInput
               onIonChange={(e) => setEmail(e.target.value)}
-              value={email}
               type="email"
               placeholder="Email"
               className="signup-email-input"
             ></IonInput>
             <IonInput
               onIonChange={(e) => setPassword(e.target.value)}
-              value={password}
               type="password"
               placeholder="Password"
               className="signup-password-input"
