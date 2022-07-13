@@ -54,7 +54,7 @@
   background-color: rgb(241, 236, 224);
   text-align: center;
 }
-.login-btn-row{
+.login-btn-row {
   display: flex;
   justify-content: center;
   /* margin-top: 10px; */
@@ -78,7 +78,7 @@
   font-size: 13.8px;
   color: black;
 }
-.SignUp-text{
+.SignUp-text {
   color: blue;
 }
 .img-btn-row {

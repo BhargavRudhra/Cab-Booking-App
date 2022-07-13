@@ -12,7 +12,7 @@ import {
   useIonToast,
   useIonAlert,
   IonLoading,
-  useIonLoading
+  useIonLoading,
 } from "@ionic/react";
 import "./Signuppage.css";
 import mancar from "../assets/man-car.png";
@@ -31,7 +31,7 @@ const SignUp = () => {
       position: "bottom",
       message: message,
       showCloseButton: true,
-      mode:"ios",
+      mode: "ios",
     });
   }
   const [presentAlert] = useIonAlert();
@@ -41,16 +41,16 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [presentloading,dismissloading] = useIonLoading();
+  const [presentloading, dismissloading] = useIonLoading();
   const { createUser, currentUser } = UserAuth();
   const router = useIonRouter();
   const clearInputs = () => {
-        setUsername("");
-        setMobile("");
-        setEmail("");
-        setPassword("");
+    setUsername("");
+    setMobile("");
+    setEmail("");
+    setPassword("");
   };
-  const Loginin = async () =>{
+  const Loginin = async () => {
     clearInputs();
     router.push("/Loginpage");
   };
@@ -68,22 +68,13 @@ const SignUp = () => {
     var atposition = email.indexOf("@");
     var dotposition = email.lastIndexOf(".");
 
-    if (
-      username == null ||
-      username === "" ){
-        handleButtonClick("Please enter User Name");
-      } else if(
-      mobile == null ||
-      mobile === "" ){
-        handleButtonClick("Please enter Mobile Number");
-      }else if(
-      email == null ||
-      email === ""){
-        handleButtonClick("Please enter Email");
-      } else if (
-      password == null ||
-      password === ""
-    ) {
+    if (username == null || username === "") {
+      handleButtonClick("Please enter User Name");
+    } else if (mobile == null || mobile === "") {
+      handleButtonClick("Please enter Mobile Number");
+    } else if (email == null || email === "") {
+      handleButtonClick("Please enter Email");
+    } else if (password == null || password === "") {
       handleButtonClick("Please enter Password");
     } else if (password.length < 5) {
       handleButtonClick("Password must have minimum 5 characters");
@@ -98,10 +89,10 @@ const SignUp = () => {
       //   setError('')
       try {
         presentloading({
-          message : 'Signingin!..',
-          duration : 2000,
-          spinner : "lines-small",
-        })
+          message: "Signingin!..",
+          duration: 2000,
+          spinner: "lines-small",
+        });
         await createUser(email, password);
         dismissloading();
         handleButtonClick("User Added");
@@ -156,7 +147,7 @@ const SignUp = () => {
             ></IonInput>
           </IonRow>
           <IonRow className="signup-btn-row">
-          <IonButton
+            <IonButton
               type="submit"
               className="signup-submit-button"
               color="brown"
@@ -168,7 +159,11 @@ const SignUp = () => {
           <IonRow className="signup-text-row">
             <IonText className="signup-text">
               {" "}
-              Have an account ? <IonText className="Login-text" onClick={Loginin}>Login</IonText> here
+              Have an account ?{" "}
+              <IonText className="Login-text" onClick={Loginin}>
+                Login
+              </IonText>{" "}
+              here
             </IonText>
           </IonRow>
         </IonGrid>

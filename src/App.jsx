@@ -117,35 +117,35 @@ const App = () => {
 
   return (
     <>
-    <AuthContextProvider>
-      <IonApp>
-        <IonReactRouter>
-          <IonRouterOutlet>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/home">
-              <Redirect to="/home" />
-            </Route>
-            <Route exact path="/loginpage">
-              <Loginpage />
-            </Route>
-            <Route exact path="/signuppage">
-              <Signuppage />
-            </Route>
-            <Route exact path="/landingpage">
-              <Landingpage />
-            </Route>
-            <Route exact path="/settings">
-              <Settings />
-            </Route>
-            <Route exact path="/appupdate">
-              <Updateapp />
-            </Route>
-          </IonRouterOutlet>
-        </IonReactRouter>
-      </IonApp>
-    </AuthContextProvider>
+      <AuthContextProvider>
+        <IonApp>
+          <IonReactRouter>
+            <IonRouterOutlet>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/home">
+                <Redirect to="/home" />
+              </Route>
+              <Route exact path="/loginpage">
+                <Loginpage />
+              </Route>
+              <Route exact path="/signuppage">
+                <Signuppage />
+              </Route>
+              <Route exact path="/landingpage">
+                <Landingpage />
+              </Route>
+              <Route exact path="/settings">
+                <Settings />
+              </Route>
+              <Route exact path="/appupdate">
+                <Updateapp />
+              </Route>
+            </IonRouterOutlet>
+          </IonReactRouter>
+        </IonApp>
+      </AuthContextProvider>
     </>
   );
 };

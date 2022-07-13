@@ -7,7 +7,7 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  useIonRouter
+  useIonRouter,
 } from "@ionic/react";
 // import Loginpage from './Loginpage';
 import "./Home.css";

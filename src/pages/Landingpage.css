@@ -169,11 +169,11 @@
   width: 335px;
   margin-left: 10px;
 }
-.logout-btn-row{
+.logout-btn-row {
   display: flex;
   justify-content: center;
 }
-.logout-btn{
+.logout-btn {
   display: flex;
   justify-content: center;
   height: 32px;

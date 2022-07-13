@@ -12,8 +12,7 @@ import {
   useIonToast,
   useIonAlert,
   IonCol,
-  IonLoading,
-  useIonLoading
+  useIonLoading,
 } from "@ionic/react";
 import "./Loginpage.css";
 import image from "../assets/fac.png";
@@ -30,14 +29,14 @@ const Loginpage = () => {
   const [presentAlert] = useIonAlert();
   const [loading, setLoading] = useState(false);
   const [presentloading, dismissloading] = useIonLoading();
-  const {facebookSignIn, googleSignIn} = UserAuth();
+  const { facebookSignIn, googleSignIn } = UserAuth();
 
   const clearInputs = () => {
     setEmail("");
     setPassword("");
   };
 
-  const Signup = async () =>{
+  const Signup = async () => {
     clearInputs();
     router.push("/Signuppage");
   };
@@ -66,27 +65,27 @@ const Loginpage = () => {
       position: "bottom",
       message: message,
       showCloseButton: true,
-      mode:"ios",
+      mode: "ios",
     });
   }
-  async function handleAlert(message){
+  async function handleAlert(message) {
     presentAlert({
-      header:"Alert",
-      message:message,
-      buttons :["OK"],
-      mode:"md",
-      animated:true,
-      cssClass:'loginpage-alert',
-      color:'light'
+      header: "Alert",
+      message: message,
+      buttons: ["OK"],
+      mode: "md",
+      animated: true,
+      cssClass: "loginpage-alert",
+      color: "light",
     });
   }
   const router = useIonRouter();
   const handleSubmit = async (e) => {
     var atposition = email.indexOf("@");
     var dotposition = email.lastIndexOf(".");
-    if (email == null || email === ""){
+    if (email == null || email === "") {
       handleButtonClick("Please enter Email");
-    } else if( password == null || password === "") {
+    } else if (password == null || password === "") {
       handleButtonClick("Please enter Password");
     } else if (password.length < 5) {
       handleButtonClick("Password must have minimum 5 characters");
@@ -99,10 +98,10 @@ const Loginpage = () => {
     } else {
       try {
         presentloading({
-          message : 'Loggingin!..',
-          duration : 2000,
-          spinner : "lines-small",
-        })
+          message: "Loggingin!..",
+          duration: 2000,
+          spinner: "lines-small",
+        });
         await signin(email, password);
         dismissloading();
         handleButtonClick("Successfully Login");
@@ -116,9 +115,6 @@ const Loginpage = () => {
       }
     }
   };
-  // if(loading){
-  //   return <IonLoading isOpen = {showLoading} onDidDismiss={() => setShowLoading(false)} message={'LoggingIn...'} duration={2000}/>
-  // }
   return (
     <IonPage>
       <IonContent className="login-main-page-content">
@@ -146,7 +142,7 @@ const Loginpage = () => {
             ></IonInput>
           </IonRow>
           <IonRow className="login-btn-row">
-          <IonButton
+            <IonButton
               onClick={handleSubmit}
               type="submit"
               className="login-submit-button"
@@ -154,15 +150,18 @@ const Loginpage = () => {
             >
               Login
             </IonButton>
-            {/* <IonSpinner name="lines" /> */}
           </IonRow>
           <IonRow className="login-text-row">
             <IonText className="login-text">
-              If you don't have account? <IonText className="SignUp-text" onClick={Signup} >SignUp</IonText> here
+              If you don't have account?{" "}
+              <IonText className="SignUp-text" onClick={Signup}>
+                SignUp
+              </IonText>{" "}
+              here
             </IonText>
           </IonRow>
           <IonRow className="img-btn-row">
-          <IonCol className="img-col">
+            <IonCol className="img-col">
               <IonButton className="insta-btn" color="lightwhite">
                 <IonImg className="insta-img" src={googleicon} />
                 Google
