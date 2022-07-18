@@ -10,6 +10,7 @@ import {
 import "./Settings.css";
 import { arrowBack } from "ionicons/icons";
 import { UserAuth } from "../context/AuthContext";
+import { GoogleAuth } from "@codetrix-studio/capacitor-google-auth";
 
 const Settings = () => {
   const { logout } = UserAuth();
@@ -17,17 +18,32 @@ const Settings = () => {
   const handleArrowback = async () => {
     router.push("/Landingpage");
   };
+  // const handleGoogleLogut = async () => {
+  //   if(GoogleAuth.signOut()){
+  //   GoogleAuth.signOut();
+  //       router.push("/Loginpage");
+  //     } else{
+  //       await logout();
+  //     router.push("/Loginpage");
+  //     alert("Successfully Logout");
+  //     }
+  // }
   const handleLogout = async () => {
     try {
+      if(GoogleAuth.initialize()){
+        await GoogleAuth.signOut();
+        router.push("/Loginpage");
+        alert("Successfully Logout");
+      } else{
       await logout();
       router.push("/Loginpage");
       alert("Successfully Logout");
       // window.location.reload();
+    }
     } catch (e) {
       console.log(e.message);
     }
   };
-
   return (
     <IonPage>
       <IonContent className="setting-main-content" fullscreen>
@@ -50,11 +66,8 @@ const Settings = () => {
           <IonRow className="setting-grid-row"> Refer & Earn </IonRow>
           <IonRow className="setting-grid-row"> Support </IonRow>
           <IonRow className="setting-grid-row"> About </IonRow>
-          <IonRow className="setting-grid-row"> Account </IonRow>
-          <IonRow className="setting-grid-row" onClick={handleLogout}>
-            {" "}
-            Logout{" "}
-          </IonRow>
+          <IonRow className="setting-grid-row" > Account </IonRow>
+          <IonRow className="setting-grid-row" onClick={handleLogout}> Logout </IonRow>
         </IonGrid>
       </IonContent>
     </IonPage>

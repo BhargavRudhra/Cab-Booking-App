@@ -169,14 +169,3 @@
   width: 335px;
   margin-left: 10px;
 }
-.logout-btn-row {
-  display: flex;
-  justify-content: center;
-}
-.logout-btn {
-  display: flex;
-  justify-content: center;
-  height: 32px;
-  font-size: 14px;
-  color: white;
-}

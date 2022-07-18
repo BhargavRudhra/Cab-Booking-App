@@ -10,8 +10,10 @@ import {
   IonRow,
   IonIcon,
   IonCol,
-  IonButton,
+  useIonViewWillEnter,
   IonText,
+  IonInfiniteScroll,
+  IonInfiniteScrollContent
 } from "@ionic/react";
 import { settings, location } from "ionicons/icons";
 import "./Landingpage.css";
@@ -20,25 +22,48 @@ import map from "../assets/map.png";
 import Dashboardcar from "../assets/Dashboard-car.png";
 import auto from "../assets/auto.png";
 import bike from "../assets/Bike.png";
-import travelpic from "../assets/travelpic.png";
+// import travelpic from "../assets/travelpic.png";
+import {imgdata} from "./dashboarddata";
 // import { UserAuth } from "../context/AuthContext";
 // import { toastController } from "@ionic/core";
 
 const Landingpage = () => {
-  // const { logout } = UserAuth();
+
+  const [dashdata , setDashdata] = useState([]);
+  const [isInfiniteDisabled, setInfiniteDisabled] = useState(false);
+  const pushData = () => {
+
+    const max = dashdata.length + 5;
+    const min = max - 5;
+   const newData = [];
+   for(let i = min;i < max;i++){
+  imgdata[i].id = imgdata[i].id + i*i;
+  newData.push(imgdata[i]);
+   }
+   setDashdata([
+     ...dashdata,
+     ...newData
+   ]);
+ }
+ const loaddashData = (ev) => {
+  console.log(dashdata.length);
+  setTimeout(() => {
+    pushData();
+    console.log('Loaded data');
+    ev.target.complete();
+    if (dashdata.length === 30) {
+      setInfiniteDisabled(true);
+    }
+  }, 1000);
+}
+useIonViewWillEnter(() => {
+  pushData();  
+});
   const router = useIonRouter();
   const handleSettings = async () => {
     router.push("/Settings");
   };
-  // const handleLogout = async () => {
-  //   try {
-  //     await logout();
-  //     router.push("/Loginpage");
-  //     alert("Successfully Logout");
-  //   } catch (e) {
-  //     console.log(e.message);
-  //   }
-  // };
+  
 
   return (
     <IonPage>
@@ -107,18 +132,28 @@ const Landingpage = () => {
               </IonText>
             </IonCard>
           </IonRow>
-          <IonRow className="landingpage-image-card-row">
+          {dashdata.map((Data) => {
+            return (
+          <IonRow className="landingpage-image-card-row" key={Data.id}>
             <IonCard className="image-card">
-              <IonImg src={travelpic} className="travel-pic" />
+              <IonImg src={Data.image} className="travel-pic" />
             </IonCard>
           </IonRow>
-          <IonRow className="logout-btn-row">
-            {/* <IonButton className="logout-btn" color="black" onClick={handleLogout}>Logout</IonButton> */}
-          </IonRow>
+          )
+          })}
+          <IonInfiniteScroll
+             onIonInfinite={loaddashData}
+             threshold="100px"
+             disabled={isInfiniteDisabled}
+          >
+          <IonInfiniteScrollContent
+          loadingSpinner="bubbles"
+          loadingText="Loading more data..."
+          ></IonInfiniteScrollContent>
+          </IonInfiniteScroll>
         </IonGrid>
       </IonContent>
     </IonPage>
   );
 };
-
 export default Landingpage;

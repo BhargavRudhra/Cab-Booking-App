@@ -20,6 +20,7 @@ import googleicon from "../assets/google-icon.jpg";
 import mancar from "../assets/man-car.png";
 import { UserAuth } from "../context/AuthContext";
 import { useState } from "react";
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth'
 const Loginpage = () => {
   const { signin, user } = UserAuth();
   const [email, setEmail] = useState("");
@@ -40,6 +41,24 @@ const Loginpage = () => {
     clearInputs();
     router.push("/Signuppage");
   };
+
+  const signInGoogle = async () => {
+    presentloading({
+      message: "Loggingin!..",
+      duration: 2000,
+      spinner: "lines-small",
+    });
+
+    GoogleAuth.initialize();
+    const result = await GoogleAuth.signIn();
+    console.log(result);
+    if (result) {
+      router.push("/Landingpage");
+      dismissloading();
+      handleButtonClick("Successfully Login");
+    }
+  }
+
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
@@ -162,7 +181,7 @@ const Loginpage = () => {
           </IonRow>
           <IonRow className="img-btn-row">
             <IonCol className="img-col">
-              <IonButton className="insta-btn" color="lightwhite">
+              <IonButton className="insta-btn" color="lightwhite" onClick={signInGoogle}>
                 <IonImg className="insta-img" src={googleicon} />
                 Google
               </IonButton>

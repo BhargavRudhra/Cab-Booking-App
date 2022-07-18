@@ -1,6 +1,7 @@
 .arrow-back-icon {
   display: flex;
   margin-right: 30px;
+  color: black;
 }
 .settings-row {
   display: flex;
