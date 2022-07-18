@@ -70,12 +70,12 @@ useIonViewWillEnter(() => {
       <IonContent className="landingpage-main-content">
         <IonGrid className="landingpage-main-grid">
           <IonRow className="landingpage-img-row">
-            <IonImg src={map} className="map-img" />
+          <IonImg src={map} className="map-img" />
             <IonCard className="landpage-pick-card">
               <IonSearchbar
                 className="pickup-search"
                 placeholder="Your Location"
-                color="white"
+                color="transperant"
               ></IonSearchbar>
               <IonIcon
                 className="settings-icon"

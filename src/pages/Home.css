@@ -9,15 +9,21 @@
 }
 .home-img-row {
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  width: 600px;
 }
 .taxivip {
+  display: flex;
   margin-top: 30px;
-  margin-left: px;
+  margin-left: -215px;
   height: 19px;
 }
 .maincar-img {
-  height: 40vh;
+  display: flex;
+  height: 400px;
+  width: 414px;
+  margin-left: -21px;
 }
 .home-button-row {
   display: flex;
