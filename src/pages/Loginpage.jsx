@@ -58,25 +58,6 @@ const Loginpage = () => {
       handleButtonClick("Successfully Login");
     }
   };
-
-  const handleGoogleSignIn = async (e) => {
-    e.preventDefault();
-    try {
-      await googleSignIn();
-      router.push("/Landingpage");
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-  const handleFacebookSignIn = async (e) => {
-    e.preventDefault();
-    try {
-      await facebookSignIn();
-      router.push("/Landingpage");
-    } catch (error) {
-      alert(error.message);
-    }
-  };
   async function handleButtonClick(message) {
     present({
       color: "black",

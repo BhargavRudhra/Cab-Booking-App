@@ -34,7 +34,6 @@ import "./theme/variables.css";
 import { useEffect, useState } from "react";
 import { Browser } from "@capacitor/browser";
 import { App as app } from "@capacitor/app";
-// import axios from "axios";
 
 setupIonicReact();
 
