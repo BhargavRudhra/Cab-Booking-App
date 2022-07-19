@@ -28,6 +28,7 @@ const Settings = () => {
         await logout();
         router.push("/Loginpage");
         alert("Successfully Logout");
+        // window.location.reload();
       }
     } catch (e) {
       console.log(e.message);

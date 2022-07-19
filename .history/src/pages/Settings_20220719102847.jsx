@@ -18,6 +18,16 @@ const Settings = () => {
   const handleArrowback = async () => {
     router.push("/Landingpage");
   };
+  // const handleGoogleLogut = async () => {
+  //   if(GoogleAuth.signOut()){
+  //   GoogleAuth.signOut();
+  //       router.push("/Loginpage");
+  //     } else{
+  //       await logout();
+  //     router.push("/Loginpage");
+  //     alert("Successfully Logout");
+  //     }
+  // }
   const handleLogout = async () => {
     try {
       if (GoogleAuth.initialize()) {
@@ -28,6 +38,7 @@ const Settings = () => {
         await logout();
         router.push("/Loginpage");
         alert("Successfully Logout");
+        // window.location.reload();
       }
     } catch (e) {
       console.log(e.message);

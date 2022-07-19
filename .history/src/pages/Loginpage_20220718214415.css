@@ -43,7 +43,7 @@
   height: 45px;
   background-color: rgb(241, 236, 224);
   text-align: center;
-  width: 350px;
+  width: 320px;
 }
 .login-password-input {
   /* display: flex; */
@@ -54,7 +54,7 @@
   height: 45px;
   background-color: rgb(241, 236, 224);
   text-align: center;
-  width: 350px;
+  width: 320px;
 }
 .login-btn-row {
   display: flex;

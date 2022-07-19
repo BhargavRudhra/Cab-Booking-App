@@ -5,7 +5,7 @@
 .home-main-grid {
   height: 100vh;
   justify-content: space-around;
-  /* padding: 5%; */
+  padding: 5%;
 }
 .home-img-row {
   display: flex;
@@ -22,6 +22,8 @@
 .maincar-img {
   display: flex;
   height: 400px;
+  /* width: 414px; */
+  /* margin-left: -21px; */
 }
 .home-button-row {
   display: flex;

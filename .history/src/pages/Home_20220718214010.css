@@ -22,11 +22,13 @@
 .maincar-img {
   display: flex;
   height: 400px;
+  /* width: 414px; */
+  /* margin-left: -21px; */
 }
 .home-button-row {
   display: flex;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 .mob-num-email-btn {
   display: flex;

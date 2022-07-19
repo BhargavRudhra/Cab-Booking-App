@@ -11,12 +11,14 @@ import {
   IonLabel,
   useIonToast,
   useIonAlert,
+  IonLoading,
   useIonLoading,
 } from "@ionic/react";
 import "./Signuppage.css";
 import mancar from "../assets/man-car.png";
 import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
+import { toastController } from "@ionic/core";
 const SignUp = () => {
   const [present] = useIonToast();
   async function handleButtonClick(message) {

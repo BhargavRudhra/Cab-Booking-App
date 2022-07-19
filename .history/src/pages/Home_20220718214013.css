@@ -22,6 +22,8 @@
 .maincar-img {
   display: flex;
   height: 400px;
+  /* width: 414px; */
+  /* margin-left: -21px; */
 }
 .home-button-row {
   display: flex;

@@ -11,12 +11,17 @@ import {
   IonLabel,
   useIonToast,
   useIonAlert,
+  IonLoading,
   useIonLoading,
 } from "@ionic/react";
 import "./Signuppage.css";
 import mancar from "../assets/man-car.png";
 import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
+import { toastController } from "@ionic/core";
+// import { Link, useNavigate } from "react-router-dom";
+// import { auth } from "../../firebase";
+
 const SignUp = () => {
   const [present] = useIonToast();
   async function handleButtonClick(message) {
@@ -108,6 +113,8 @@ const SignUp = () => {
           </IonRow>
           <IonRow className="signup-title-row">
             <IonLabel className="signup">SignUp</IonLabel>
+            {/* </IonRow>
+        <IonRow className="signup-input-row"> */}
             <IonInput
               onIonChange={(e) => setUsername(e.detail.value)}
               value={username}

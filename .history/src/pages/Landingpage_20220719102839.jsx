@@ -22,7 +22,11 @@ import map from "../assets/map.png";
 import Dashboardcar from "../assets/Dashboard-car.png";
 import auto from "../assets/auto.png";
 import bike from "../assets/Bike.png";
+// import travelpic from "../assets/travelpic.png";
 import { imgdata } from "./dashboarddata";
+// import { UserAuth } from "../context/AuthContext";
+// import { toastController } from "@ionic/core";
+
 const Landingpage = () => {
   const [dashdata, setDashdata] = useState([]);
   const [isInfiniteDisabled, setInfiniteDisabled] = useState(false);
