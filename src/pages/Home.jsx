@@ -5,9 +5,7 @@ import {
   IonPage,
   IonImg,
   IonGrid,
-  IonRow,
-  IonCol,
-  useIonRouter,
+  IonRow
 } from "@ionic/react";
 import "./Home.css";
 import maincar from "../assets/maincar.png";

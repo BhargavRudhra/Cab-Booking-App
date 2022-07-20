@@ -4,18 +4,13 @@
 }
 .landingpage-main-grid {
   height: 100vh;
-  /* justify-content: space-around; */
-  /* padding: 1%; */
 }
 .landingpage-img-row {
   display: flex;
   justify-content: center;
-  width: 700px;
-  margin-left: -150px;
 }
 .map-img {
   margin-top: 0px;
-  /* height: 270px; */
   width: 420px;
   margin-left: 1px;
 }
@@ -39,7 +34,7 @@
 .settings-icon {
   margin: 10px;
 }
-.landingpage-booking-vehicles {
+.landingpage-booking-vehicles-row {
   display: flex;
   justify-content: center;
   margin-bottom: 0px;
@@ -71,7 +66,6 @@
   position: relative;
   height: 60px;
   width: 60px;
-  /* margin-left: 0px; */
 }
 .auto-vehicle-name {
   display: flex;
@@ -121,15 +115,12 @@
 .landingpage-destination-card-row {
   display: flex;
   justify-content: center;
-  width: 570px;
-  margin-left: -150px;
 }
 .landpage-main-card {
   position: relative;
   top: 0px;
   height: 180px;
-  width: 380px;
-  margin-left: 150px;
+  width: 372px;
   --background: white;
 }
 .landingpage-destination-search {
@@ -169,6 +160,5 @@
 .image-card {
   top: -8px;
   height: 200px;
-  width: 370px;
-  margin-left: 15px;
+  width: 372px;
 }

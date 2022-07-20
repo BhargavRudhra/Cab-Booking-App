@@ -15,40 +15,34 @@ import {
   useIonLoading,
 } from "@ionic/react";
 import "./Loginpage.css";
-import image from "../assets/fac.png";
+import facebookicon from "../assets/fac.png";
 import googleicon from "../assets/google-icon.jpg";
-import mancar from "../assets/man-car.png";
+import mancarimg from "../assets/man-car.png";
 import { UserAuth } from "../context/AuthContext";
 import { useState } from "react";
 import { GoogleAuth } from "@codetrix-studio/capacitor-google-auth";
 const Loginpage = () => {
-  const { signin, user } = UserAuth();
+  const { signin } = UserAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [setError] = useState("");
   const [present] = useIonToast();
   const [presentAlert] = useIonAlert();
-  const [loading, setLoading] = useState(false);
   const [presentloading, dismissloading] = useIonLoading();
-  const { facebookSignIn, googleSignIn } = UserAuth();
-
   const clearInputs = () => {
     setEmail("");
     setPassword("");
   };
-
   const Signup = async () => {
     clearInputs();
     router.push("/Signuppage");
   };
-
   const signInGoogle = async () => {
     presentloading({
       message: "Loggingin!..",
       duration: 2000,
       spinner: "lines-small",
     });
-
     GoogleAuth.initialize();
     const result = await GoogleAuth.signIn();
     console.log(result);
@@ -120,7 +114,7 @@ const Loginpage = () => {
       <IonContent className="login-main-page-content">
         <IonGrid className="login-main-grid">
           <IonRow className="mancar-row">
-            <IonImg src={mancar} className="mancar" />
+            <IonImg src={mancarimg} className="mancar" />
           </IonRow>
           <IonRow className="Login-row">
             <IonLabel className="Login">Login</IonLabel>
@@ -163,17 +157,17 @@ const Loginpage = () => {
           <IonRow className="img-btn-row">
             <IonCol className="img-col">
               <IonButton
-                className="insta-btn"
+                className="google-btn"
                 color="lightwhite"
                 onClick={signInGoogle}
               >
-                <IonImg className="insta-img" src={googleicon} />
+                <IonImg className="google-img" src={googleicon} />
                 Google
               </IonButton>
             </IonCol>
             <IonCol className="img-col">
               <IonButton className="facebook-btn" color="lightwhite">
-                <IonImg className="face-img" src={image} />
+                <IonImg className="facebook-img" src={facebookicon} />
                 Facebook
               </IonButton>
             </IonCol>

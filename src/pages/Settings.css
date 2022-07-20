@@ -5,19 +5,16 @@
 }
 .settings-row {
   display: flex;
-  /* padding: 50px; */
   margin-top: 60px;
 }
 .settings-col {
   display: flex;
-  /* margin-top: 19px; */
   font-size: 25px;
   margin-right: 140px;
   color: black;
 }
 .setting-main-content {
   --background: white;
-  /* height: 100%; */
 }
 .setting-main-grid {
   background: rgb(249, 247, 247);
@@ -25,7 +22,6 @@
   margin-top: 0px;
 }
 .setting-grid-row {
-  /* display: flex; */
   padding: 6%;
   font-size: 18px;
   margin-left: 20px;

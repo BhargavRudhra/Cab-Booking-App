@@ -11,7 +11,6 @@ import "./Settings.css";
 import { arrowBack } from "ionicons/icons";
 import { UserAuth } from "../context/AuthContext";
 import { GoogleAuth } from "@codetrix-studio/capacitor-google-auth";
-
 const Settings = () => {
   const { logout } = UserAuth();
   const router = useIonRouter();

@@ -34,10 +34,9 @@ const SignUp = () => {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [setError] = useState("");
   const [presentloading, dismissloading] = useIonLoading();
-  const { createUser, currentUser } = UserAuth();
+  const { createUser} = UserAuth();
   const router = useIonRouter();
   const clearInputs = () => {
     setUsername("");
@@ -58,11 +57,9 @@ const SignUp = () => {
       color: "darkgreen",
     });
   }
-
   const handleSubmit = async (e) => {
     var atposition = email.indexOf("@");
     var dotposition = email.lastIndexOf(".");
-
     if (username == null || username === "") {
       handleButtonClick("Please enter User Name");
     } else if (mobile == null || mobile === "") {

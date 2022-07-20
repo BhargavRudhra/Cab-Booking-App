@@ -17,7 +17,7 @@ import {
 } from "@ionic/react";
 import { settings, location } from "ionicons/icons";
 import "./Landingpage.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import map from "../assets/map.png";
 import Dashboardcar from "../assets/Dashboard-car.png";
 import auto from "../assets/auto.png";
@@ -26,7 +26,7 @@ import { imgdata } from "./dashboarddata";
 const Landingpage = () => {
   const [dashdata, setDashdata] = useState([]);
   const [isInfiniteDisabled, setInfiniteDisabled] = useState(false);
-  const pushData = () => {
+  const pushdashData = () => {
     const max = dashdata.length + 5;
     const min = max - 5;
     const newData = [];
@@ -39,7 +39,7 @@ const Landingpage = () => {
   const loaddashData = (ev) => {
     console.log(dashdata.length);
     setTimeout(() => {
-      pushData();
+      pushdashData();
       console.log("Loaded data");
       ev.target.complete();
       if (dashdata.length === 30) {
@@ -48,13 +48,12 @@ const Landingpage = () => {
     }, 1000);
   };
   useIonViewWillEnter(() => {
-    pushData();
+    pushdashData();
   });
   const router = useIonRouter();
   const handleSettings = async () => {
     router.push("/Settings");
   };
-
   return (
     <IonPage>
       <IonContent className="landingpage-main-content">
@@ -75,7 +74,7 @@ const Landingpage = () => {
               />
             </IonCard>
           </IonRow>
-          <IonRow className="landingpage-booking-vehicles">
+          <IonRow className="landingpage-booking-vehicles-row">
             <IonCol className="landingpage-dashboard-col">
               <IonImg src={Dashboardcar} className="dashboard-img" />
               <IonLabel className="car-vehicle-name">Car</IonLabel>

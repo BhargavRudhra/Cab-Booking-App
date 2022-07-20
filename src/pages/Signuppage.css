@@ -3,32 +3,23 @@
   height: 100%;
 }
 .signup-main-grid {
-  /* display: flex; */
   height: 100vh;
-  /* flex-direction: column; */
   justify-content: space-around;
-  padding: 5%;
+  padding: 4%;
 }
 .mancar-row {
   display: flex;
 }
 .mancar {
   height: 250px;
-  /* top: 20px; */
 }
 .signup-title-row {
   display: flex;
-  /* justify-content: center;
-    align-items: center; */
-  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 30px; */
-  /* margin-top: 30px; */
 }
 .signup {
-  /* top: 23px; */
   text-align: center;
   font-size: 2rem;
   color: black;
@@ -38,51 +29,43 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 200px; */
-  /* padding: %; */
-  /* margin-top: 30px; */
 }
 .signup-uname-input {
+  display: flex;
   color: black;
   margin-top: 20px;
   opacity: 9;
   border-radius: 7px;
-  /* top: 40px; */
-  /* left: 30px; */
-  /* width: 260px; */
   height: 40px;
   background-color: rgb(241, 236, 224);
   text-align: center;
 }
 .signup-number-input {
+  display: flex;
   color: black;
   opacity: 9;
   border-radius: 7px;
   margin-top: 20px;
-  /* left: 30px; */
-  /* width: 260px; */
   height: 40px;
   background-color: rgb(241, 236, 224);
   text-align: center;
 }
 .signup-email-input {
+  display: flex;
   color: black;
   opacity: 9;
   border-radius: 7px;
   margin-top: 20px;
-  /* left: 30px; */
-  /* width: 260px; */
   height: 40px;
   background-color: rgb(241, 236, 224);
   text-align: center;
 }
 .signup-password-input {
+  display: flex;
   color: black;
   opacity: 9;
   border-radius: 7px;
   margin-top: 20px;
-  /* left: 30px; */
-  /* width: 260px; */
   height: 40px;
   background-color: rgb(241, 236, 224);
   text-align: center;
@@ -94,14 +77,11 @@
 }
 .signup-submit-button {
   margin-top: 20px;
-  /* left: 110px; */
   width: 90px;
   font-size: 14px;
   height: 35px;
 }
 .signup-text {
-  /* top: 140px; */
-  /* right: 33px; */
   font-size: 15px;
   color: black;
 }

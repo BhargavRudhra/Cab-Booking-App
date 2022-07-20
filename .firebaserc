@@ -1,8 +1,0 @@
-{
-  "projects": {
-    "default": "cab-service-mob-app",
-    "Taxi": "taxivip-14f9c",
-    "TaxiVIP": "cab-service-mob-app"
-  },
-  "targets": {}
-}
