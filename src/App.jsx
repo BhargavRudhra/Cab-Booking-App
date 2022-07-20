@@ -16,7 +16,7 @@ import Settings from "./pages/Settings";
 import Updateapp from "./pages/Appupdate";
 import { AuthContextProvider } from "./context/AuthContext";
 import { db } from "./firebase";
-import { collection, doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import "@ionic/react/css/core.css";
 
 import "@ionic/react/css/normalize.css";
@@ -111,9 +111,8 @@ const App = () => {
     if (isPlatform("android")) {
       getAppInfo();
     }
-  }, [0]);
+  },);
   checkUpdate();
-
   return (
     <>
       <AuthContextProvider>

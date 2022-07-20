@@ -10,15 +10,10 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import { FirebaseError } from "firebase/app";
-import { async } from "@firebase/util";
-// import { send } from "process";
-
 const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  // const [loggedIn, setLoggedIn] = useState(true);
   const googleSignIn = () => {
     const googleAuthProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleAuthProvider);
@@ -27,7 +22,6 @@ export const AuthContextProvider = ({ children }) => {
     const Provider = new FacebookAuthProvider();
     signInWithPopup(auth, Provider);
   };
-
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -51,7 +45,6 @@ export const AuthContextProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
-
   return (
     <UserContext.Provider
       value={{ createUser, user, signin, emailVerification,logout,facebookSignIn,googleSignIn }}
