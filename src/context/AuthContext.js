@@ -5,18 +5,23 @@ import {
   signOut,
   onAuthStateChanged,
   sendEmailVerification,
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import { FirebaseError } from "firebase/app";
-import { async } from "@firebase/util";
-// import { send } from "process";
-
 const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  // const [loggedIn, setLoggedIn] = useState(true);
-
+  const googleSignIn = () => {
+    const googleAuthProvider = new GoogleAuthProvider();
+    signInWithPopup(auth, googleAuthProvider);
+  };
+  const facebookSignIn = () => {
+    const Provider = new FacebookAuthProvider();
+    signInWithPopup(auth, Provider);
+  };
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -28,9 +33,9 @@ export const AuthContextProvider = ({ children }) => {
   const signin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
-  const logout =() => {
-    return signOut(auth)
-  }
+  const logout = () => {
+    return signOut(auth);
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
@@ -40,10 +45,17 @@ export const AuthContextProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
-
   return (
     <UserContext.Provider
-      value={{ createUser, user, signin, emailVerification,logout }}
+      value={{
+        createUser,
+        user,
+        signin,
+        emailVerification,
+        logout,
+        facebookSignIn,
+        googleSignIn,
+      }}
     >
       {children}
     </UserContext.Provider>

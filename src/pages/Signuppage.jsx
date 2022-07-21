@@ -10,38 +10,44 @@ import {
   IonRow,
   IonLabel,
   useIonToast,
-  useIonAlert
+  useIonAlert,
+  useIonLoading,
 } from "@ionic/react";
 import "./Signuppage.css";
 import mancar from "../assets/man-car.png";
 import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
-import { toastController } from "@ionic/core";
-// import { Link, useNavigate } from "react-router-dom";
-// import { auth } from "../../firebase";
-
 const SignUp = () => {
   const [present] = useIonToast();
   async function handleButtonClick(message) {
     present({
       color: "black",
-      duration: 2000,
+      duration: 3000,
       position: "bottom",
       message: message,
       showCloseButton: true,
-      mode:"ios",
+      mode: "ios",
     });
   }
-
-  // const navigate =useNavigate();
   const [presentAlert] = useIonAlert();
   const [username, setUsername] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const { createUser, currentUser } = UserAuth();
+  const [setError] = useState("");
+  const [presentloading, dismissloading] = useIonLoading();
+  const { createUser} = UserAuth();
   const router = useIonRouter();
+  const clearInputs = () => {
+    setUsername("");
+    setMobile("");
+    setEmail("");
+    setPassword("");
+  };
+  const Loginin = async () => {
+    clearInputs();
+    router.push("/Loginpage");
+  };
   async function handleAlert(message) {
     presentAlert({
       header: "Alert",
@@ -51,27 +57,16 @@ const SignUp = () => {
       color: "darkgreen",
     });
   }
-
   const handleSubmit = async (e) => {
     var atposition = email.indexOf("@");
     var dotposition = email.lastIndexOf(".");
-
-    if (
-      username == null ||
-      username === "" ){
-        handleButtonClick("Please enter User Name");
-      } else if(
-      mobile == null ||
-      mobile === "" ){
-        handleButtonClick("Please enter Mobile Number");
-      }else if(
-      email == null ||
-      email === ""){
-        handleButtonClick("Please enter Email");
-      } else if (
-      password == null ||
-      password === ""
-    ) {
+    if (username == null || username === "") {
+      handleButtonClick("Please enter User Name");
+    } else if (mobile == null || mobile === "") {
+      handleButtonClick("Please enter Mobile Number");
+    } else if (email == null || email === "") {
+      handleButtonClick("Please enter Email");
+    } else if (password == null || password === "") {
       handleButtonClick("Please enter Password");
     } else if (password.length < 5) {
       handleButtonClick("Password must have minimum 5 characters");
@@ -82,15 +77,22 @@ const SignUp = () => {
     ) {
       handleButtonClick("Please enter valid email");
     } else {
-      //   e.preventDefault()
-      //   setError('')
       try {
+        presentloading({
+          message: "Signingin!..",
+          duration: 2000,
+          spinner: "lines-small",
+        });
         await createUser(email, password);
+        dismissloading();
         handleButtonClick("User Added");
+        clearInputs();
         router.push("/Loginpage");
       } catch (e) {
+        dismissloading();
         setError(e.message);
         handleAlert(e.message);
+        clearInputs();
       }
     }
   };
@@ -103,35 +105,37 @@ const SignUp = () => {
           </IonRow>
           <IonRow className="signup-title-row">
             <IonLabel className="signup">SignUp</IonLabel>
-            {/* </IonRow>
-        <IonRow className="signup-input-row"> */}
             <IonInput
               onIonChange={(e) => setUsername(e.detail.value)}
+              value={username}
               type="text"
               placeholder="User Name"
               className="signup-uname-input"
             ></IonInput>
             <IonInput
               onIonChange={(e) => setMobile(e.detail.value)}
+              value={mobile}
               type="number"
               placeholder="Mobile Number"
               className="signup-number-input"
             ></IonInput>
             <IonInput
               onIonChange={(e) => setEmail(e.target.value)}
+              value={email}
               type="email"
               placeholder="Email"
               className="signup-email-input"
             ></IonInput>
             <IonInput
               onIonChange={(e) => setPassword(e.target.value)}
+              value={password}
               type="password"
               placeholder="Password"
               className="signup-password-input"
             ></IonInput>
           </IonRow>
           <IonRow className="signup-btn-row">
-          <IonButton
+            <IonButton
               type="submit"
               className="signup-submit-button"
               color="brown"
@@ -143,7 +147,11 @@ const SignUp = () => {
           <IonRow className="signup-text-row">
             <IonText className="signup-text">
               {" "}
-              Have an account ? <a href="Loginpage">Login</a> here{" "}
+              Have an account ?{" "}
+              <IonText className="Login-text" onClick={Loginin}>
+                Login
+              </IonText>{" "}
+              here
             </IonText>
           </IonRow>
         </IonGrid>

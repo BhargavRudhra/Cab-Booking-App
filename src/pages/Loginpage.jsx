@@ -10,24 +10,48 @@ import {
   IonGrid,
   IonRow,
   useIonToast,
-  useIonAlert
+  useIonAlert,
+  IonCol,
+  useIonLoading,
 } from "@ionic/react";
 import "./Loginpage.css";
-import mancar from "../assets/man-car.png";
+import facebookicon from "../assets/fac.png";
+import googleicon from "../assets/google-icon.jpg";
+import mancarimg from "../assets/man-car.png";
 import { UserAuth } from "../context/AuthContext";
 import { useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-// import { async } from '@firebase/util';
-// import { auth } from "../../firebase";
-
+import { GoogleAuth } from "@codetrix-studio/capacitor-google-auth";
 const Loginpage = () => {
-  const { signin, user } = UserAuth();
+  const { signin } = UserAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [present,dismiss] = useIonToast();
+  const [setError] = useState("");
+  const [present] = useIonToast();
   const [presentAlert] = useIonAlert();
-  
+  const [presentloading, dismissloading] = useIonLoading();
+  const clearInputs = () => {
+    setEmail("");
+    setPassword("");
+  };
+  const Signup = async () => {
+    clearInputs();
+    router.push("/Signuppage");
+  };
+  const GoogleLogin = async () => {
+    presentloading({
+      message: "Loggingin!..",
+      duration: 2000,
+      spinner: "lines-small",
+    });
+    GoogleAuth.initialize();
+    const result = await GoogleAuth.signIn();
+    console.log(result);
+    if (result) {
+      router.push("/Landingpage");
+      dismissloading();
+      handleButtonClick("Successfully Login");
+    }
+  };
   async function handleButtonClick(message) {
     present({
       color: "black",
@@ -35,27 +59,27 @@ const Loginpage = () => {
       position: "bottom",
       message: message,
       showCloseButton: true,
-      mode:"ios",
+      mode: "ios",
     });
   }
-  async function handleAlert(message){
+  async function handleAlert(message) {
     presentAlert({
-      header:"Alert",
-      message:message,
-      buttons :["OK"],
-      mode:"md",
-      animated:true,
-      cssClass:'loginpage-alert',
-      color:'light'
+      header: "Alert",
+      message: message,
+      buttons: ["OK"],
+      mode: "md",
+      animated: true,
+      cssClass: "loginpage-alert",
+      color: "light",
     });
   }
   const router = useIonRouter();
   const handleSubmit = async (e) => {
     var atposition = email.indexOf("@");
     var dotposition = email.lastIndexOf(".");
-    if (email == null || email === ""){
+    if (email == null || email === "") {
       handleButtonClick("Please enter Email");
-    } else if( password == null || password === "") {
+    } else if (password == null || password === "") {
       handleButtonClick("Please enter Password");
     } else if (password.length < 5) {
       handleButtonClick("Password must have minimum 5 characters");
@@ -67,14 +91,21 @@ const Loginpage = () => {
       handleButtonClick("Please enter proper email");
     } else {
       try {
+        presentloading({
+          message: "Loggingin!..",
+          duration: 2000,
+          spinner: "lines-small",
+        });
         await signin(email, password);
+        dismissloading();
         handleButtonClick("Successfully Login");
-        setEmail("");
-        setPassword("");
+        clearInputs();
         router.push("/Landingpage");
       } catch (e) {
+        dismissloading();
         setError(e.message);
         handleAlert(e.message);
+        clearInputs();
       }
     }
   };
@@ -83,7 +114,7 @@ const Loginpage = () => {
       <IonContent className="login-main-page-content">
         <IonGrid className="login-main-grid">
           <IonRow className="mancar-row">
-            <IonImg src={mancar} className="mancar" />
+            <IonImg src={mancarimg} className="mancar" />
           </IonRow>
           <IonRow className="Login-row">
             <IonLabel className="Login">Login</IonLabel>
@@ -91,19 +122,21 @@ const Loginpage = () => {
           <IonRow className="login-input-row">
             <IonInput
               onIonChange={(e) => setEmail(e.detail.value)}
+              value={email}
               type="email"
               placeholder="Email"
               className="login-email-input"
             ></IonInput>
             <IonInput
               onIonChange={(e) => setPassword(e.detail.value)}
+              value={password}
               type="password"
               placeholder="Password"
               className="login-password-input"
             ></IonInput>
           </IonRow>
           <IonRow className="login-btn-row">
-          <IonButton
+            <IonButton
               onClick={handleSubmit}
               type="submit"
               className="login-submit-button"
@@ -114,8 +147,30 @@ const Loginpage = () => {
           </IonRow>
           <IonRow className="login-text-row">
             <IonText className="login-text">
-              If you don't have account? <a href="Signuppage">SignUp</a> here{" "}
+              If you don't have account?{" "}
+              <IonText className="SignUp-text" onClick={Signup}>
+                SignUp
+              </IonText>{" "}
+              here
             </IonText>
+          </IonRow>
+          <IonRow className="img-btn-row">
+            <IonCol className="img-col">
+              <IonButton
+                className="google-btn"
+                color="lightwhite"
+                onClick={GoogleLogin}
+              >
+                <IonImg className="google-img" src={googleicon} />
+                Google
+              </IonButton>
+            </IonCol>
+            <IonCol className="img-col">
+              <IonButton className="facebook-btn" color="lightwhite">
+                <IonImg className="facebook-img" src={facebookicon} />
+                Facebook
+              </IonButton>
+            </IonCol>
           </IonRow>
         </IonGrid>
       </IonContent>

@@ -7,23 +7,23 @@
   height: 100vh;
   /* flex-direction: column; */
   justify-content: space-around;
-  padding: 5%;
+  padding: 4%;
 }
 .mancar-row {
   display: flex;
 }
-/* .mancar{
-    display: flex;
-} */
+.mancar {
+  display: flex;
+}
 .Login-row {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 .Login {
-  /* display: flex; */
+  display: flex;
   text-align: center;
   font-size: 2rem;
   color: black;
@@ -37,7 +37,6 @@
 .login-email-input {
   display: flex;
   color: black;
-  /* opacity: 9; */
   border-radius: 7px;
   margin-top: 25px;
   height: 45px;
@@ -45,19 +44,17 @@
   text-align: center;
 }
 .login-password-input {
-  /* display: flex; */
+  display: flex;
   color: black;
-  /* opacity: 9; */
   border-radius: 7px;
   margin-top: 25px;
   height: 45px;
   background-color: rgb(241, 236, 224);
   text-align: center;
 }
-.login-btn-row{
+.login-btn-row {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 }
 .login-submit-button {
   display: flex;
@@ -71,10 +68,44 @@
 .login-text-row {
   display: flex;
   justify-content: center;
-  margin-top: 45px;
+  margin-top: 25px;
 }
 .login-text {
-  /* display: flex; */
   font-size: 13.8px;
   color: black;
+}
+.SignUp-text {
+  color: blue;
+}
+.img-btn-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.img-col {
+  display: flex;
+  justify-content: center;
+}
+.facebook-btn {
+  border-radius: 10px;
+  font-size: 12px;
+  color: black;
+}
+.facebook-img {
+  margin-right: 5vw;
+  height: 20px;
+  width: 20px;
+}
+.google-btn {
+  border-radius: 10px;
+  font-size: 12px;
+  color: black;
+}
+.google-img {
+  margin-right: 5vw;
+  height: 25px;
+  width: 25px;
+}
+.addedversion{
+  display: flex;
 }
