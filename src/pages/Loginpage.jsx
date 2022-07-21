@@ -37,7 +37,7 @@ const Loginpage = () => {
     clearInputs();
     router.push("/Signuppage");
   };
-  const signInGoogle = async () => {
+  const GoogleLogin = async () => {
     presentloading({
       message: "Loggingin!..",
       duration: 2000,
@@ -159,7 +159,7 @@ const Loginpage = () => {
               <IonButton
                 className="google-btn"
                 color="lightwhite"
-                onClick={signInGoogle}
+                onClick={GoogleLogin}
               >
                 <IonImg className="google-img" src={googleicon} />
                 Google

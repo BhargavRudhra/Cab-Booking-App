@@ -13,7 +13,7 @@ import Loginpage from "./pages/Loginpage";
 import Signuppage from "./pages/Signuppage";
 import Landingpage from "./pages/Landingpage";
 import Settings from "./pages/Settings";
-import Updateapp from "./pages/Appupdate";
+import Updateapp from "./pages/Profilepage";
 import { AuthContextProvider } from "./context/AuthContext";
 import { db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
