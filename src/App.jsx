@@ -13,7 +13,7 @@ import Loginpage from "./pages/Loginpage";
 import Signuppage from "./pages/Signuppage";
 import Landingpage from "./pages/Landingpage";
 import Settings from "./pages/Settings";
-import Updateapp from "./pages/Profilepage";
+import UserProfile from "./pages/Profilepage";
 import { AuthContextProvider } from "./context/AuthContext";
 import { db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
@@ -111,7 +111,7 @@ const App = () => {
     if (isPlatform("android")) {
       getAppInfo();
     }
-  },);
+  },[0]);
   checkUpdate();
   return (
     <>
@@ -137,8 +137,8 @@ const App = () => {
               <Route exact path="/settings">
                 <Settings />
               </Route>
-              <Route exact path="/appupdate">
-                <Updateapp />
+              <Route exact path="/profilepage">
+                <UserProfile />
               </Route>
             </IonRouterOutlet>
           </IonReactRouter>

@@ -1,0 +1,32 @@
+.profile-row {
+    display: flex;
+    margin-top: 45px;
+  }
+.profile-arrow-back-icon {
+    display: flex;
+    margin-right: 30px;
+    color: black;
+  }
+  .profile-col {
+    display: flex;
+    font-size: 25px;
+    margin-right: 140px;
+    color: black;
+  }
+  .username-row{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: large;
+  }
+  .useremail-row{
+    display: flex;
+    margin-top: 5px;
+    margin-left: 20px;
+    font-size: small;
+  }
+  .profile-avthar{
+    display: flex;
+    width: 70px;
+    height: 70px;
+  }

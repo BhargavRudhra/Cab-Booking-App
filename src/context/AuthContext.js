@@ -14,6 +14,7 @@ const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [googleuser , setGoogleuser]  = useState()
   const googleSignIn = () => {
     const googleAuthProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleAuthProvider);
@@ -55,6 +56,8 @@ export const AuthContextProvider = ({ children }) => {
         logout,
         facebookSignIn,
         googleSignIn,
+        googleuser,
+        setGoogleuser
       }}
     >
       {children}

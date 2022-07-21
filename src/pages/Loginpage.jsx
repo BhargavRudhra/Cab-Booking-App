@@ -23,6 +23,7 @@ import { useState } from "react";
 import { GoogleAuth } from "@codetrix-studio/capacitor-google-auth";
 const Loginpage = () => {
   const { signin } = UserAuth();
+  const {setGoogleuser} = UserAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [setError] = useState("");
@@ -46,6 +47,7 @@ const Loginpage = () => {
     GoogleAuth.initialize();
     const result = await GoogleAuth.signIn();
     console.log(result);
+    setGoogleuser(result);
     if (result) {
       router.push("/Landingpage");
       dismissloading();
